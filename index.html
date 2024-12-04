@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Me</title>
+    <style>
+        /* Body styles with a reddish romantic gradient */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ffafbd , #ffc3a0); /* Red to soft pinkish gradient */
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Heart animation */
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Heart shape background */
+        .heart {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 50px;
+            color: #fff;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Link styles */
+        a {
+            text-decoration: none;
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            background-color: rgba(255, 105, 180, 0.8); /* Soft pink background */
+            padding: 20px 40px;
+            border-radius: 25px;
+            transition: background-color 0.3s, transform 0.2s;
+            border: 2px solid #fff;
+            position: absolute;  /* Ensure absolute positioning */
+            left: 50%;           /* Start from the center horizontally */
+            top: 50%;            /* Start from the center vertically */
+            transform: translate(-50%, -50%); /* Ensure it's centered */
+            transition: all 1s ease; /* Smooth transition */
+        }
+
+        a:hover {
+            background-color: rgba(255, 105, 180, 1); /* Brighter pink on hover */
+            transform: scale(1.1); /* Slightly enlarge the link on hover */
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Heart icon floating in the background -->
+    <div class="heart">💖</div>
+
+    <!-- Clickable link -->
+    <a id="clickMe" href="index1.html">Chase and click me!</a>
+
+    <script>
+        const button = document.getElementById('clickMe');
+        let attempts = 0;  // Counter for the number of attempts
+
+        // Function to generate random positions
+        function getRandomPosition() {
+            const x = Math.random() * (window.innerWidth - button.offsetWidth); // Random X position
+            const y = Math.random() * (window.innerHeight - button.offsetHeight); // Random Y position
+            return {x, y};
+        }
+
+        // Function to move the button away when hovered
+        button.addEventListener('mouseenter', () => {
+            if (attempts < 5) {
+                attempts++;  // Increase the attempts count
+                
+                // Get a random position
+                const { x, y } = getRandomPosition();
+
+                // Move the button to the random position with smooth transition
+                button.style.left = `${x}px`;
+                button.style.top = `${y}px`;
+
+                button.style.pointerEvents = 'none'; // Disable clicking temporarily
+
+                // Reset the animation after 1 second (so it moves back to original position)
+                setTimeout(() => {
+                    button.style.pointerEvents = 'auto'; // Re-enable clicking
+                }, 1000); // 1 second to reset after move
+
+            } else {
+                // Once 5 attempts are made, move the button to the center and allow clicking
+                button.style.left = '50%';
+                button.style.top = '50%';
+                button.style.transform = 'translate(-50%, -50)'; // Correctly center the button
+                button.style.pointerEvents = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>

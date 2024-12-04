@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Pacifico&family=Poiret+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body {
+    font-family: "Outfit", sans-serif;
+    background: #c1121f;
+  }
+  
+  .animation-box {
+    width: 75%;
+    height: 27.5rem;
+    background-color: #c1121f;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .animation-container {
+    width: 1000rem;
+    height: 30rem;
+  }
+  
+  .first-text {
+    font-size: 4.4rem;
+    position: absolute;
+    left: 2.5rem;
+    top: 5rem;
+    opacity: 0;
+    animation-name: topFadeOut;
+    animation-duration: 5s;
+    color: #fdf0d5;
+  }
+  
+  .second-text {
+    font-size: 3.4rem;
+    position: absolute;
+    top: 8.5rem;
+    opacity: 0;
+    animation-name: rightFadeInOut;
+    animation-delay: 4s;
+    animation-duration: 6s;
+    color: #fdf0d5;
+  }
+  
+  .third-text {
+    transform: rotate(-90deg);
+    font-size: 2rem;
+    position: absolute;
+    left: 45%;
+    top: 45%;
+    opacity: 0;
+    animation-name: topFadeOutVertical;
+    animation-delay: 8s;
+    animation-duration: 5s;
+    color: #a3ddf0;
+    white-space: nowrap;
+  }
+  
+  .fourth-text {
+    font-size: 3.4rem;
+    position: absolute;
+    top: 10.5rem;
+    left: 10%;
+    opacity: 0;
+    color: #f0a3be;
+    animation-name: fadeInOut;
+    animation-delay: 12s;
+    animation-duration: 5s;
+  }
+  
+  .fifth-text {
+    font-size: 5rem;
+    position: absolute;
+    left: 5%;
+    bottom: 25%;
+    opacity: 0;
+    color: #f0eba3;
+    animation-name: bottomFadeOut;
+    animation-delay: 15s;
+    animation-duration: 9s;
+  }
+  @keyframes topFadeOut {
+    0% {
+      position: absolute;
+      top: -3rem;
+      opacity: 0;
+    }
+  
+    75% {
+      position: absolute;
+      top: 25%;
+      opacity: 1;
+    }
+  
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes bottomFadeOut {
+    0% {
+      position: absolute;
+      bottom: -5rem;
+      opacity: 0;
+    }
+  
+    75% {
+      position: absolute;
+      bottom: 25%;
+      opacity: 1;
+    }
+  
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes topFadeOutVertical {
+    0% {
+      position: absolute;
+      top: -3rem;
+      opacity: 0;
+    }
+  
+    75% {
+      position: absolute;
+      top: 45%;
+      opacity: 1;
+    }
+  
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes rightFadeInOut {
+    0% {
+      position: absolute;
+      right: -3rem;
+      opacity: 0;
+    }
+  
+    75% {
+      position: absolute;
+      right: 10rem;
+      opacity: 1;
+    }
+  
+    100% {
+      opacity: 0;
+      right: 10rem;
+    }
+  }
+  
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+    }
+  
+    45% {
+      opacity: 1;
+    }
+  
+    100% {
+      opacity: 0%;
+    }
+  }
